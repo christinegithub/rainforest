@@ -23,7 +23,7 @@
 
     {% endfor %}
 
-    <form action="" method="post">
+    <form action="{% url 'new_review' product_id=product.pk %}" method="post">
       {% csrf_token %}
 
       {{ form.as_p }}
