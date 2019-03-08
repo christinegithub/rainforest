@@ -2,6 +2,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from rainforest.models import Product
 
+
+def root(request):
+    return HttpResponseRedirect('/home')
+
 def home_page(request):
     context = {'products': Product.objects.all()}
     response = render(request, 'index.html', context)
