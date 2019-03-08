@@ -1,8 +1,9 @@
+from django.core.validators import MinLengthValidator, MaxLengthValidator
 from django.db import models
 
 class Product(models.Model):
     name = models.CharField(max_length = 255)
-    description = models.TextField()
+    description = models.TextField(validators=[MinLengthValidator(10), MaxLengthValidator(500)])
     price = models.IntegerField()
     url = models.CharField(max_length  = 255)
 
