@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from rainforest.models import Product
+from rainforest.models import Product, Review
 from rainforest.forms import ProductForm
 
 
