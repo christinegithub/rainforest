@@ -12,7 +12,15 @@
     <p>{{product.price}}</p>
     <p>{{product.description}}</p>
     <!-- <a href="{{product.url}}"> Click here </a> -->
+
     <a href="{% url 'edit_product' id=product.pk %}"> Edit Product </a>
+
+    <h2>Reviews: </h2>
+    {% for review in product.reviews.all %}
+      <ul>
+        <li>{{review.comment}}</li>
+      </ul>
+    {% endfor %}
   </body>
 </html>
 {% endblock %}
