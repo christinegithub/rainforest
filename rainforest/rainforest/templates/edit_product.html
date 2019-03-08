@@ -14,5 +14,10 @@
     </form>
     <a href="{% url 'product_details' id=product.pk %}"> Go back to product </a>
 
+    <form action="{% url 'delete_product' id=product.pk %}" method="post">
+      {% csrf_token %}
+      <input type="submit" name="product-delete" value="Delete" >
+    </form>
+
   </body>
 </html>

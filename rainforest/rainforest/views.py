@@ -45,3 +45,8 @@ def product_edited(request,id):
         return HttpResponseRedirect('/home')
     else:
         return render(request, 'edit_product.html', {'form': ProductForm(instance=product), 'product': product})
+
+def delete_product(request, id):
+    product = Product.objects.get(pk=id)
+    product.delete()
+    return HttpResponseRedirect('/home')
