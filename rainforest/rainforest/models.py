@@ -5,3 +5,6 @@ class Product(models.Model):
     description = models.TextField()
     price = models.IntegerField()
     url = models.CharField(max_length  = 255)
+
+    def __str__(self):
+        return self.name
