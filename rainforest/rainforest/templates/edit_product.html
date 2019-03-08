@@ -12,7 +12,7 @@
     {{ form.as_p }}
     <input class="submit-form" type="submit" name="product-submit">
     </form>
-
+    <a href="{% url 'product_details' id=product.pk %}"> Go back to product </a>
 
   </body>
 </html>

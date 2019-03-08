@@ -7,10 +7,12 @@
     <title> Product </title>
   </head>
   <body>
+
     <p> {{product.name}}</p>
     <p>{{product.price}}</p>
     <p>{{product.description}}</p>
     <!-- <a href="{{product.url}}"> Click here </a> -->
+    <a href="{% url 'edit_product' id=product.pk %}"> Edit Product </a>
   </body>
 </html>
 {% endblock %}
