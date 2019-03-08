@@ -30,4 +30,17 @@ def product_created(request):
         return HttpResponseRedirect('/home')
     else:
         return render(request, 'new_product.html', {'form': ProductForm()})
-    
+
+def edit_product(request):
+    context = {'form': ProductForm()}
+    response = render(request, 'edit_product.html', context)
+    return HttpResponse(response)
+
+def product_edited(request):
+    product = Product.objects.get(pk=id)
+    form = ProductForm(request.POST, instance=product)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect('/home')
+    else:
+        return render(request, 'edit_product.html', {'form': ProductForm()})
