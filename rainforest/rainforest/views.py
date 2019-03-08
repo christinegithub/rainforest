@@ -64,8 +64,8 @@ def new_review(request,product_id):
     else:
         return render(request, 'product.html', {'form': ReviewForm()})
 
-def edit_review(request,product_id):
-    review = Review.objects.get(pk=product_id)
+def edit_review(request, review_id):
+    review = Review.objects.get(pk=review_id)
     context = {'form': ReviewForm(instance=review), 'review': review}
     response = render(request, 'edit_review.html', context)
     return HttpResponse(response)

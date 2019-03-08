@@ -4,18 +4,18 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Edit Review</title>
   </head>
   <body>
     <h1>Edit Review </h1>
-    <form action="{% url 'edit_review' product_id=product.pk %}" method="post">
+    <form action="{% url 'edit_review' review_id=review.pk %}" method="post">
       {% csrf_token %}
 
       {{ form.as_p }}
       <input class="submit-form" type="submit" name="review-submit">
 
     </form>
-    <a href="{% url 'product_details' id=product.pk %}"> Go  back to Product</a>
+    <a href="{% url 'product_details' id=review.product_id %}"> Go  back to Product</a>
   </body>
 </html>
 {% endblock %}
