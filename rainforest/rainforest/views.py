@@ -22,3 +22,11 @@ def new_product(request):
     context = {'form': ProductForm()}
     response = render(request, 'new_product.html', context)
     return HttpResponse(response)
+
+def product_created(request):
+    form = ProductForm(request.POST)
+    form.save()
+    return HttpResponseRedirect('/home')
+    # context = {'form': ProductForm()}
+    # response = render(request, 'new_product.html', context)
+    # return HttpResponse(response)
