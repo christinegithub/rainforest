@@ -5,6 +5,14 @@
     <title>Home Page</title>
   </head>
   <body>
-    <p>Hi this is the project index</p>
+    {% for product in products %}
+      <ul>
+        <li>
+          {{ product.name }} | ${{ product.price }}
+          <p>{{ product.description }}</p>
+          <p>{{ product.url }}</p>
+        </li>
+      </ul>
+    {% endfor %}
   </body>
 </html>
