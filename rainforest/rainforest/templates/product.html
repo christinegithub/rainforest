@@ -20,7 +20,16 @@
       <ul>
         <li>{{review.comment}}</li>
       </ul>
+
     {% endfor %}
+
+    <form action="" method="post">
+      {% csrf_token %}
+
+      {{ form.as_p }}
+      <input class="submit-form" type="submit" name="product-submit">
+
+    </form>
   </body>
 </html>
 {% endblock %}
