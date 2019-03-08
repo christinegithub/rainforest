@@ -6,7 +6,7 @@
   </head>
   <body>
     <h1>Edit Product</h1>
-    <form action="{% url 'product_edited' %}" method="post">
+    <form action="{% url 'product_edited' id=product.pk %}" method="post">
     {% csrf_token %}
 
     {{ form.as_p }}
