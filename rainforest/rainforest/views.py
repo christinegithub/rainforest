@@ -69,3 +69,13 @@ def edit_review(request, review_id):
     context = {'form': ReviewForm(instance=review), 'review': review}
     response = render(request, 'edit_review.html', context)
     return HttpResponse(response)
+
+def review_edited(request, review_id):
+    review = Review.objects.get(pk=review_id)
+    product = Product.objects.get(pk=product_id)
+    form = ReviewForm(request.POST, instance=review)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('product_details', args=[product.pk]))
+    else:
+        return render(request, 'edit_review.html', {'form': ReviewForm(instance=review), 'review': review})
