@@ -17,10 +17,11 @@
     </form>
     <a href="{% url 'product_details' id=review.product_id %}"> Go  back to Product</a>
 
-    <!-- <form action="{% url 'delete_product' id=product.pk %}" method="post">
+    <form action="{% url 'delete_review' review_id=review.pk %}" method="post">
       {% csrf_token %}
-      <input type="submit" name="product-delete" value="Delete" >
-    </form> -->
+      <input type="submit" name="review-delete" value="Delete" >
+    </form>
+
   </body>
 </html>
 {% endblock %}
