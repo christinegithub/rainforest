@@ -18,7 +18,9 @@
     <h2>Reviews: </h2>
     {% for review in product.reviews.all %}
       <ul>
-        <li>{{review.comment}}</li>
+        <a href= "{% url 'edit_review' review_id=review.pk %}">
+          <li>{{review.comment}}</li>
+        </a>
       </ul>
 
     {% endfor %}
