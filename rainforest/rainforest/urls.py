@@ -29,9 +29,5 @@ urlpatterns = [
     path('delete_product/<int:id>', delete_product, name = "delete_product"),
     path('products/<int:product_id>/reviews/create', new_review, name = "new_review"),
     path('edit_review/<int:review_id>', edit_review, name = "edit_review"),
-<<<<<<< HEAD
     path('review_edited/<int:review_id>', review_edited, name = "review_edited"),
-=======
-    path('review_edited/<int:review_id>', review_edited, name = "review_edited")
->>>>>>> d29f50a0846c7c174b7dab719e19ccd91b486b98
 ]
