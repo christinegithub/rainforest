@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from django.contrib import messages
 from rainforest.models import Product, Review
 from rainforest.forms import ProductForm, ReviewForm
 
@@ -69,3 +70,13 @@ def edit_review(request, review_id):
     context = {'form': ReviewForm(instance=review), 'review': review}
     response = render(request, 'edit_review.html', context)
     return HttpResponse(response)
+
+def review_edited(request, review_id):
+    review = Review.objects.get(pk=review_id)
+    form = ReviewForm(request.POST, instance=review)
+    if form.is_valid():
+        edited_review = form.save()
+        return HttpResponseRedirect(reverse('product_details', args=[review.product.pk]))
+    else:
+        messages.error(request, form.errors)
+        return render(request, 'edit_review.html', {'form': ReviewForm(instance=review), 'review': review})
